@@ -1,0 +1,77 @@
+declarar no inicio: numero_resposta = None, corretas = 0, erradas = 0, resposta_certa = '', numero_perguntas = 1
+
+self.montar_pergunta()
+
+self.botoes_resposta = [self.R1,self.R2,self.R3,self.R4,self.R5]
+
+self.R1.clicked.connect(self.Respondeu,1)
+self.R2.clicked.connect(self.Respondeu,2)
+self.R3.clicked.connect(self.Respondeu,3)
+self.R4.clicked.connect(self.Respondeu,4)
+self.R5.clicked.connect(self.Respondeu,5)
+
+
+def proxima_pergunta(self):
+    numero_pergunta += 1
+    montar_pergunta()
+
+def Respondeu(self, value): #todo: incompleto
+    global numero_resposta, resposta_certa
+    certa = False
+    for i in botoes_resposta:
+        if value == i
+            self.botoes_resposta[i].setStyleSheet('QPushButton {background-color:#00FF00}')
+        else:
+            self.botoes_resposta[i].setStyleSheet('QPushButton {background-color:#FF0000}')
+        if resposta_certa == self.botoes_resposta[i].text:
+            certa = True
+    if certa:
+        corretas += 1
+    else:
+        erradas += 1
+
+    def montar_pergunta(self):
+
+        global numero_resposta, resposta_certa
+        pergunta_formada = main.formar_pergunta()
+        resposta_certa = pergunta_formada[2]
+        self.titulo_pergunta.setText(pergunta_formada[0])
+        self.corpo_pergunta.setText(pergunta_formada[1])
+        posicionamento = randint(1,5)
+
+        if posicionamento == 5:
+            numero_resposta = 5
+            for i in range(len(self.botoes_resposta)-1):
+                self.botoes_resposta[i].setText(pergunta_formada[3][i])
+
+        elif posicionamento == 4:
+            numero_resposta = 4
+            for i in range(len(self.botoes_resposta)-1):
+                if i == 3:
+                    self.botoes_resposta[i].setText(pergunta_formada[2])
+                else:
+                    self.botoes_resposta[i].setText(pergunta_formada[3][i])
+
+        elif posicionamento == 3:
+            numero_resposta = 3
+            for i in range(len(self.botoes_resposta)-1):
+                if i == 2:
+                    self.botoes_resposta[i].setText(pergunta_formada[2])
+                else:
+                    self.botoes_resposta[i].setText(pergunta_formada[3][i])
+
+        elif posicionamento == 2:
+            numero_resposta = 2
+            for i in range(len(self.botoes_resposta)-1):
+                if i == 1:
+                    self.botoes_resposta[i].setText(pergunta_formada[2])
+                else:
+                    self.botoes_resposta[i].setText(pergunta_formada[3][i])
+
+        else:
+            numero_resposta = 1
+            for i in range(len(self.botoes_resposta)-1):
+                if i == 0:
+                    self.botoes_resposta[i].setText(pergunta_formada[2])
+                else:
+                    self.botoes_resposta[i].setText(pergunta_formada[3][i])
