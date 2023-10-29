@@ -15,7 +15,7 @@ def proxima_pergunta(self):
     numero_pergunta += 1
     montar_pergunta()
 
-def Respondeu(self, value): #todo: incompleto
+def Respondeu(self, value):
     global numero_resposta, resposta_certa
     certa = False
     for i in botoes_resposta:
